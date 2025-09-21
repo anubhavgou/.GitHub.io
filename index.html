@@ -4,81 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anubhav Gour - Portfolio</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; background:#f4f4f4; }
-        header { background:#333; color:#fff; padding: 20px 0; text-align:center; }
-        h1, h2, h3 { margin: 10px 0; }
-        .container { max-width: 900px; margin: auto; padding: 20px; }
-        .section { background:#fff; margin: 20px 0; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        a { text-decoration: none; color: #007BFF; }
-        ul { text-align:left; max-width: 600px; margin: 10px auto; }
-        li { margin: 6px 0; }
-        .contact p { margin: 8px 0; }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-100 text-gray-800 font-sans">
 
-<header>
-    <h1>👋 Hi, I'm Anubhav Gour</h1>
-    <p>Full-Stack Developer | Laravel | REST API | React Enthusiast</p>
-</header>
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-8 shadow-md text-center">
+        <h1 class="text-4xl font-bold">Hi, I'm Anubhav Gour 👋</h1>
+        <p class="text-lg mt-2">Full-Stack Developer | Laravel | REST API | React Enthusiast</p>
+    </header>
 
-<div class="container">
-
-    <!-- About Me -->
-    <section class="section">
-        <h2>About Me</h2>
-        <p>I am a passionate Full-Stack Developer with 1+ years of hands-on experience in designing and developing scalable web applications. 
-        Skilled in Laravel, REST APIs, React, and responsive design, with a focus on building clean, efficient, and user-friendly solutions.</p>
+    <!-- About Section -->
+    <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 mt-6">
+        <h2 class="text-2xl font-bold mb-4 text-blue-700">About Me</h2>
+        <p>I am a passionate Full-Stack Developer with 2+ years of hands-on experience in building scalable, responsive web applications. I specialize in Laravel, RESTful APIs, and front-end development with a focus on delivering clean, efficient, and user-friendly solutions. Currently, I am working on enhancing RHMP portal features and developing real-time data solutions at IIT Kanpur.</p>
     </section>
 
-    <!-- Skills -->
-    <section class="section">
-        <h2>Skills</h2>
-        <ul>
-            <li><strong>Back-End:</strong> PHP (Laravel 10), RESTful APIs, OOP Principles</li>
-            <li><strong>Front-End:</strong> HTML5, CSS3, Bootstrap, JavaScript, jQuery, React</li>
-            <li><strong>Database:</strong> MySQL, MongoDB</li>
-            <li><strong>DevOps:</strong> Git, GitLab, CI/CD pipelines</li>
-            <li><strong>Tools:</strong> Figma (UI/UX), MS Office, FileZilla</li>
+    <!-- Skills Section -->
+    <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 mt-6">
+        <h2 class="text-2xl font-bold mb-4 text-blue-700">Skills</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
+            <span class="bg-blue-100 p-2 rounded">PHP (Laravel 10)</span>
+            <span class="bg-blue-100 p-2 rounded">RESTful APIs</span>
+            <span class="bg-blue-100 p-2 rounded">HTML5, CSS3, Bootstrap</span>
+            <span class="bg-blue-100 p-2 rounded">JavaScript, jQuery, AJAX</span>
+            <span class="bg-blue-100 p-2 rounded">Python</span>
+            <span class="bg-blue-100 p-2 rounded">MySQL</span>
+            <span class="bg-blue-100 p-2 rounded">Razorpay / PayPal Integration</span>
+            <span class="bg-blue-100 p-2 rounded">Git, GitLab (CI/CD)</span>
+            <span class="bg-blue-100 p-2 rounded">Figma (UI/UX)</span>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 mt-6">
+        <h2 class="text-2xl font-bold mb-4 text-blue-700">Experience</h2>
+        <div class="space-y-4">
+            <div>
+                <h3 class="text-lg font-semibold">IIT Kanpur – Project Associate (May 2025 – Present)</h3>
+                <ul class="list-disc ml-6">
+                    <li>Enhanced RHMP portal features, optimized system performance, and implemented real-time data solutions.</li>
+                    <li>Managed and updated website content, ensuring seamless integration across platforms.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold">SIIC, IIT Kanpur – Executive (Mar 2024 – May 2025)</h3>
+                <ul class="list-disc ml-6">
+                    <li>Developed Grievance Application, Grid India Application, and Appraisal Portal using Laravel.</li>
+                    <li>Integrated Razorpay for secure transactions in Test Facilities Application.</li>
+                    <li>Focused on responsive website development, ensuring accessibility across devices.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold">IIT Kanpur – Project Associate (Jul 2023 – Mar 2024)</h3>
+                <ul class="list-disc ml-6">
+                    <li>Developed dynamic web modules including Travel Management System (TMS), MoU Platform, Inventory Management System.</li>
+                    <li>Enhanced user experience through strategic design and backend optimization.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 mt-6">
+        <h2 class="text-2xl font-bold mb-4 text-blue-700">Projects</h2>
+        <ul class="list-disc ml-6">
+            <li><strong>Travel Management System:</strong> Complete travel booking and approval platform.</li>
+            <li><strong>Inventory Management System:</strong> Stock tracking, reporting, and approval workflows.</li>
+            <li><strong>GIPSA Application:</strong> Online system to manage students records and view winners list.</li>
+            <li><strong>Test Facilities Application:</strong> Includes secure Razorpay integration for payments.</li>
         </ul>
     </section>
 
-    <!-- Experience -->
-    <section class="section">
-        <h2>Experience</h2>
-        <h3>IIT Kanpur (Project Associate) – May 2025 – Present</h3>
-        <ul>
-            <li>Enhanced RHMP portal features and optimized monthly attendance reports.</li>
-            <li>Managed and updated website content, ensuring smooth integration across platforms.</li>
-        </ul>
-        <h3>SIIC, IIT Kanpur (Executive) – Mar 2024 – May 2025</h3>
-        <ul>
-            <li>Developed Grievance Application, Grid India Application, and Appraisal Portal using Laravel.</li>
-            <li>Integrated Razorpay for secure transactions in Test Facilities Application.</li>
-            <li>Delivered responsive websites ensuring accessibility and performance across devices.</li>
-        </ul>
+    <!-- Contact Section -->
+    <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 mt-6 mb-10 text-center">
+        <h2 class="text-2xl font-bold mb-4 text-blue-700">Contact</h2>
+        <p>📧 <a href="mailto:anubhavknp3@gmail.com" class="text-blue-600 hover:underline">anubhavknp3@gmail.com</a></p>
+        <p>🔗 <a href="https://github.com/anubhav-gour" target="_blank" class="text-blue-600 hover:underline">GitHub</a> | <a href="https://linkedin.com/in/anubhav-gour" target="_blank" class="text-blue-600 hover:underline">LinkedIn</a></p>
     </section>
-
-    <!-- Projects -->
-    <section class="section">
-        <h2>Projects</h2>
-        <ul>
-            <li><strong>Travel Management System (TMS):</strong> Built a complete travel booking and approval platform.</li>
-            <li><strong>Inventory Management System:</strong> Designed modules for stock tracking and reporting.</li>
-            <li><strong>MoU Platform:</strong> Developed an online system to manage MoUs and approvals.</li>
-        </ul>
-    </section>
-
-    <!-- Contact -->
-    <section class="section contact">
-        <h2>Contact</h2>
-        <p>📧 Email: <a href="mailto:anubhavknp3@gmail.com">anubhavknp3@gmail.com</a></p>
-        <p>🔗 GitHub: <a href="https://github.com/anubhav-gour" target="_blank">github.com/anubhav-gour</a></p>
-        <p>💼 LinkedIn: <a href="https://linkedin.com/in/anubhav-gour" target="_blank">linkedin.com/in/anubhav-gour</a></p>
-    </section>
-
-</div>
 
 </body>
 </html>
