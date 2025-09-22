@@ -11,13 +11,11 @@
     <!-- Header Section -->
     <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-8 shadow-md">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between px-6">
-            
             <!-- Left Side: Text -->
             <div class="text-center md:text-left">
                 <h1 class="text-4xl font-bold">Hi, I'm Anubhav Gour 👋</h1>
                 <p class="text-lg mt-2">Full-Stack Developer | Laravel | REST API | Database Management</p>
             </div>
-    
             <!-- Right Side: Photo -->
             <div class="mt-6 md:mt-0">
                 <img src="Anubhav_photo.jpeg" alt="Anubhav Gour"
@@ -25,8 +23,6 @@
             </div>
         </div>
     </header>
-
-
 
     <!-- About Section -->
     <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 mt-6">
@@ -79,6 +75,23 @@
         </div>
     </section>
 
+    <!-- Internship Section -->
+    <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 mt-6">
+        <h2 class="text-2xl font-bold mb-4 text-blue-700">Internship</h2>
+        <ul class="list-disc ml-6">
+            <li><strong>Full Stack Development Intern – IIT Kanpur:</strong> Gained hands-on experience in full-stack development using HTML5, CSS3, Bootstrap, and PHP. Contributed to building dynamic and responsive web modules for internal use.</li>
+        </ul>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 mt-6">
+        <h2 class="text-2xl font-bold mb-4 text-blue-700">Certifications</h2>
+        <ul class="list-disc ml-6">
+            <li><strong>Full Stack Development Certification:</strong> ICT - IIT Kanpur</li>
+            <li><strong>CCC Certification:</strong> Certified by NIELIT</li>
+        </ul>
+    </section>
+
     <!-- Projects Section -->
     <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 mt-6">
         <h2 class="text-2xl font-bold mb-4 text-blue-700">Projects</h2>
@@ -99,13 +112,13 @@
 
     <!-- Footer Section -->
     <footer class="bg-blue-600 text-white text-center py-4 mt-10">
-        <p class="text-sm">
-            © 2025 <span class="font-semibold">Anubhav Gour</span> | All Rights Reserved
-        </p>
-        <p class="mt-1 text-xs">
-            Built with ❤️ using <a href="https://tailwindcss.com" class="underline hover:text-gray-200">Tailwind CSS</a>
-        </p>
+        <p class="text-sm">© <span id="year"></span> <span class="font-semibold">Anubhav Gour</span> | All Rights Reserved</p>
+        <p class="mt-1 text-xs">Built with ❤️ using <a href="https://tailwindcss.com" class="underline hover:text-gray-200">Tailwind CSS</a></p>
     </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 
 </body>
 </html>
