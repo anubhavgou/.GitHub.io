@@ -3,126 +3,439 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anubhav Gour - Portfolio</title>
+    <title>Anubhav Gour | Web Developer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: "#09111f",
+                        slateblue: "#1d4ed8"
+                    },
+                    fontFamily: {
+                        display: ["Sora", "sans-serif"],
+                        body: ["Outfit", "sans-serif"]
+                    },
+                    boxShadow: {
+                        soft: "0 20px 60px rgba(15, 23, 42, 0.12)",
+                        panel: "0 14px 40px rgba(8, 15, 31, 0.16)"
+                    },
+                    keyframes: {
+                        float: {
+                            "0%, 100%": { transform: "translateY(0px)" },
+                            "50%": { transform: "translateY(-10px)" }
+                        },
+                        pulseGlow: {
+                            "0%, 100%": { boxShadow: "0 0 0 rgba(56, 189, 248, 0)" },
+                            "50%": { boxShadow: "0 0 30px rgba(56, 189, 248, 0.35)" }
+                        },
+                        marquee: {
+                            "0%": { transform: "translateX(0)" },
+                            "100%": { transform: "translateX(-50%)" }
+                        }
+                    },
+                    animation: {
+                        float: "float 5s ease-in-out infinite",
+                        glow: "pulseGlow 3.2s ease-in-out infinite",
+                        marquee: "marquee 18s linear infinite"
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: "Outfit", sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 28%),
+                radial-gradient(circle at 85% 15%, rgba(94, 234, 212, 0.18), transparent 20%),
+                linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+            color: #11203a;
+        }
+        .grid-overlay {
+            background-image:
+                linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.76);
+            backdrop-filter: blur(16px);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left { transform: translateX(-32px); }
+        .reveal-right { transform: translateX(32px); }
+        .reveal-left.visible,
+        .reveal-right.visible { transform: translateX(0); }
+        .project-card:hover .project-orb {
+            transform: scale(1.12);
+            opacity: 1;
+        }
+        .project-card:hover .project-arrow { transform: translateX(6px); }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans">
+<body class="text-slate-900">
+    <div class="fixed inset-0 grid-overlay pointer-events-none opacity-60"></div>
 
-    <!-- Header Section -->
-    <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-8 shadow-md">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between px-6">
-            <!-- Left Side: Text -->
-            <div class="text-center md:text-left">
-                <h1 class="text-4xl font-bold">Hi, I'm Anubhav Gour 👋</h1>
-                <p class="text-lg mt-2">Full-Stack Developer | Laravel | REST API | Database Management</p>
+    <header class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.22),_transparent_38%)]"></div>
+        <nav class="relative z-10 max-w-6xl mx-auto flex items-center justify-between px-6 py-6">
+            <a href="#top" class="font-display text-xl font-bold tracking-tight text-ink">Anubhav Gour</a>
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-700">
+                <a href="#about" class="hover:text-slateblue transition-colors">About</a>
+                <a href="#experience" class="hover:text-slateblue transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-slateblue transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-slateblue transition-colors">Contact</a>
             </div>
-            <!-- Right Side: Photo -->
-            <div class="mt-6 md:mt-0">
-                <img src="Anubhav_photo.jpeg" alt="Anubhav Gour"
-                     class="w-32 h-32 rounded-full border-4 border-white shadow-lg hover:scale-105 transition-transform duration-300">
+        </nav>
+
+        <section id="top" class="relative z-10 max-w-6xl mx-auto px-6 pb-20 pt-6 md:pb-28 md:pt-8">
+            <div class="grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
+                <div class="reveal reveal-left">
+                    <div class="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/80 px-4 py-2 text-sm font-medium text-slate-700 shadow-soft">
+                        <span class="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Available for impactful web engineering roles
+                    </div>
+                    <h1 class="mt-6 max-w-3xl font-display text-4xl font-bold leading-tight text-ink md:text-6xl">
+                        Building scalable web systems with
+                        <span class="bg-gradient-to-r from-slateblue via-cyan-500 to-emerald-400 bg-clip-text text-transparent">clean backend logic and polished user experience.</span>
+                    </h1>
+                    <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+                        I am Anubhav Gour, a web developer with 3+ years of experience building Laravel-based platforms, real-time dashboards, payment-enabled systems, and institutional portals at IIT Kanpur.
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <a href="#projects" class="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white shadow-panel transition-transform duration-300 hover:-translate-y-1">View My Work</a>
+                        <a href="#contact" class="rounded-full border border-slate-300 bg-white/80 px-6 py-3 text-sm font-semibold text-slate-800 transition-transform duration-300 hover:-translate-y-1">Contact Me</a>
+                    </div>
+                    <div class="mt-10 grid gap-4 sm:grid-cols-3">
+                        <div class="glass rounded-3xl border border-white/70 p-5 shadow-soft">
+                            <p class="text-3xl font-bold text-ink">3+</p>
+                            <p class="mt-2 text-sm text-slate-600">Years of professional web development experience</p>
+                        </div>
+                        <div class="glass rounded-3xl border border-white/70 p-5 shadow-soft">
+                            <p class="text-3xl font-bold text-ink">10+</p>
+                            <p class="mt-2 text-sm text-slate-600">Enterprise and institutional systems delivered</p>
+                        </div>
+                        <div class="glass rounded-3xl border border-white/70 p-5 shadow-soft">
+                            <p class="text-3xl font-bold text-ink">IIT</p>
+                            <p class="mt-2 text-sm text-slate-600">Hands-on work across IIT Kanpur teams and portals</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal reveal-right">
+                    <div class="relative mx-auto max-w-md">
+                        <div class="absolute -left-8 top-10 h-28 w-28 rounded-full bg-sky-300/40 blur-3xl"></div>
+                        <div class="absolute -right-5 bottom-12 h-32 w-32 rounded-full bg-emerald-300/40 blur-3xl"></div>
+                        <div class="glass relative overflow-hidden rounded-[2rem] border border-white/70 p-6 shadow-panel">
+                            <div class="absolute right-5 top-5 h-20 w-20 rounded-full bg-gradient-to-br from-sky-300 to-cyan-500 opacity-60 blur-2xl"></div>
+                            <div class="relative flex items-center gap-4">
+                                <img src="Anubhav_photo.jpeg" alt="Anubhav Gour" class="h-24 w-24 rounded-3xl object-cover ring-4 ring-white shadow-soft animate-float">
+                                <div>
+                                    <p class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Full Stack Web Developer</p>
+                                    <h2 class="mt-2 font-display text-3xl font-bold text-ink">Anubhav Gour</h2>
+                                    <p class="mt-1 text-sm text-slate-600">Laravel, APIs, Deployment, Real-Time Systems</p>
+                                </div>
+                            </div>
+                            <div class="mt-8 space-y-4">
+                                <div class="rounded-2xl bg-slate-950 p-5 text-white">
+                                    <p class="text-xs uppercase tracking-[0.22em] text-sky-200">Current Focus</p>
+                                    <p class="mt-2 text-lg font-semibold">Institutional platforms, performance optimization, and live data workflows</p>
+                                </div>
+                                <div class="grid gap-4 sm:grid-cols-2">
+                                    <div class="rounded-2xl bg-sky-50 p-4">
+                                        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Backend</p>
+                                        <p class="mt-2 text-sm text-slate-700">Laravel 10, REST APIs, MySQL, payment integration</p>
+                                    </div>
+                                    <div class="rounded-2xl bg-emerald-50 p-4">
+                                        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Frontend</p>
+                                        <p class="mt-2 text-sm text-slate-700">Responsive UI, Bootstrap, JavaScript, jQuery, AJAX</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     </header>
 
-    <!-- About Section -->
-    <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 mt-6">
-        <h2 class="text-2xl font-bold mb-4 text-blue-700">About Me</h2>
-        <p>I am a passionate Full-Stack Developer with 2+ years of hands-on experience in building scalable, responsive web applications. I specialize in Laravel, RESTful APIs, and front-end development with a focus on delivering clean, efficient, and user-friendly solutions. I also have strong experience in creating fully responsive website designs that work seamlessly across all devices. Currently, I am working on enhancing RHMP portal features and developing real-time data solutions at IIT Kanpur.</p>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 mt-6">
-        <h2 class="text-2xl font-bold mb-4 text-blue-700">Skills</h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
-            <span class="bg-blue-100 p-2 rounded">PHP (Laravel 10)</span>
-            <span class="bg-blue-100 p-2 rounded">RESTful APIs</span>
-            <span class="bg-blue-100 p-2 rounded">HTML5, CSS3, Bootstrap</span>
-            <span class="bg-blue-100 p-2 rounded">JavaScript, jQuery, AJAX</span>
-            <span class="bg-blue-100 p-2 rounded">Python</span>
-            <span class="bg-blue-100 p-2 rounded">MySQL</span>
-            <span class="bg-blue-100 p-2 rounded">Razorpay / PayPal Integration</span>
-            <span class="bg-blue-100 p-2 rounded">Git, GitLab (CI/CD)</span>
-            <span class="bg-blue-100 p-2 rounded">Figma (UI/UX)</span>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 mt-6">
-        <h2 class="text-2xl font-bold mb-4 text-blue-700">Experience</h2>
-        <div class="space-y-4">
-            <div>
-                <h3 class="text-lg font-semibold">IIT Kanpur – Project Associate (May 2025 – Present)</h3>
-                <ul class="list-disc ml-6">
-                    <li>Enhanced RHMP portal features, optimized system performance, and implemented real-time data solutions.</li>
-                    <li>Managed and updated website content, ensuring seamless integration across platforms.</li>
-                </ul>
+    <main class="relative z-10">
+        <section class="overflow-hidden border-y border-slate-200/80 bg-white/60 py-4">
+            <div class="flex whitespace-nowrap">
+                <div class="flex min-w-full items-center gap-10 px-6 text-sm font-semibold uppercase tracking-[0.28em] text-slate-500 animate-marquee">
+                    <span>Laravel 10</span>
+                    <span>REST API</span>
+                    <span>MySQL</span>
+                    <span>GitLab CI/CD</span>
+                    <span>Razorpay</span>
+                    <span>GoDaddy Deployment</span>
+                    <span>Responsive UI</span>
+                    <span>Real-Time Dashboards</span>
+                    <span>Laravel 10</span>
+                    <span>REST API</span>
+                    <span>MySQL</span>
+                    <span>GitLab CI/CD</span>
+                </div>
             </div>
-            <div>
-                <h3 class="text-lg font-semibold">SIIC, IIT Kanpur – Executive (Mar 2024 – May 2025)</h3>
-                <ul class="list-disc ml-6">
-                    <li>Developed Grievance Application, Grid India Application, and Appraisal Portal using Laravel.</li>
-                    <li>Integrated Razorpay for secure transactions in Test Facilities Application.</li>
-                    <li>Focused on responsive website development, ensuring accessibility across devices.</li>
-                </ul>
+        </section>
+
+        <section id="about" class="max-w-6xl mx-auto px-6 py-20">
+            <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+                <div class="reveal reveal-left glass rounded-[2rem] border border-white/70 p-8 shadow-soft">
+                    <p class="text-sm font-semibold uppercase tracking-[0.26em] text-slate-500">About Me</p>
+                    <h2 class="mt-4 font-display text-3xl font-bold text-ink md:text-4xl">Web engineering focused on reliability, usability, and speed.</h2>
+                    <p class="mt-5 text-base leading-8 text-slate-600">I build web applications that are practical, stable, and easy for teams to use. My experience spans enterprise portals, booking systems, HR and grievance workflows, payment-enabled platforms, and live data interfaces for institutional environments.</p>
+                    <p class="mt-4 text-base leading-8 text-slate-600">I care about both the backend architecture and the user experience, which helps me create products that not only work correctly but also feel smooth and intuitive on every screen size.</p>
+                </div>
+                <div class="reveal reveal-right grid gap-5 sm:grid-cols-2">
+                    <div class="rounded-[1.75rem] bg-slate-950 p-6 text-white shadow-panel">
+                        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-sky-200">Core Strength</p>
+                        <h3 class="mt-3 text-2xl font-semibold">Full-Stack Delivery</h3>
+                        <p class="mt-3 text-sm leading-7 text-slate-300">From requirement gathering to deployment, I handle end-to-end development with clean workflows and measurable outcomes.</p>
+                    </div>
+                    <div class="rounded-[1.75rem] bg-white p-6 shadow-soft">
+                        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">Deployment</p>
+                        <h3 class="mt-3 text-2xl font-semibold text-ink">Production Readiness</h3>
+                        <p class="mt-3 text-sm leading-7 text-slate-600">Experience with hosting, server setup, content updates, and keeping institutional platforms running reliably.</p>
+                    </div>
+                    <div class="rounded-[1.75rem] bg-sky-50 p-6 shadow-soft">
+                        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">Problem Solving</p>
+                        <h3 class="mt-3 text-2xl font-semibold text-ink">System Thinking</h3>
+                        <p class="mt-3 text-sm leading-7 text-slate-600">I enjoy improving workflows, debugging deeply, and building features that reduce friction for real users.</p>
+                    </div>
+                    <div class="rounded-[1.75rem] bg-emerald-50 p-6 shadow-soft">
+                        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">Collaboration</p>
+                        <h3 class="mt-3 text-2xl font-semibold text-ink">Stakeholder Alignment</h3>
+                        <p class="mt-3 text-sm leading-7 text-slate-600">Worked closely with internal teams at IIT Kanpur to translate requirements into useful digital systems.</p>
+                    </div>
+                </div>
             </div>
-            <div>
-                <h3 class="text-lg font-semibold">IIT Kanpur – Project Associate (Jul 2023 – Mar 2024)</h3>
-                <ul class="list-disc ml-6">
-                    <li>Developed dynamic web modules including Travel Management System (TMS), MoU Platform, Inventory Management System.</li>
-                    <li>Enhanced user experience through strategic design and backend optimization.</li>
-                </ul>
+        </section>
+
+        <section class="max-w-6xl mx-auto px-6 pb-6">
+            <div class="reveal rounded-[2rem] bg-gradient-to-r from-slate-950 via-blue-950 to-slate-900 p-8 text-white shadow-panel md:p-10">
+                <div class="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-center">
+                    <div>
+                        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-sky-200">Featured Live Platform</p>
+                        <h2 class="mt-4 font-display text-3xl font-bold md:text-4xl">Narmada Control Authority river portal built for real-world access and visibility.</h2>
+                        <p class="mt-5 max-w-2xl text-base leading-8 text-slate-300">A recent portal I worked on is <a href="https://river.cnarmada.org/" target="_blank" rel="noreferrer" class="font-semibold text-white underline decoration-sky-300 underline-offset-4">river.cnarmada.org</a>. It reflects the kind of web engineering I enjoy most: production-ready interfaces, structured information delivery, responsive behavior, and a polished experience for public-facing users.</p>
+                        <p class="mt-4 max-w-2xl text-base leading-8 text-slate-300">This project deserves special focus in the portfolio because it demonstrates that I do not only build internal modules, I also contribute to live portals that need credibility, usability, and clean execution.</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-0 rounded-[1.75rem] bg-sky-400/20 blur-3xl"></div>
+                        <div class="relative rounded-[1.75rem] border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+                            <div class="flex items-center justify-between">
+                                <p class="text-xs uppercase tracking-[0.22em] text-sky-200">Portal Snapshot</p>
+                                <span class="rounded-full border border-emerald-400/40 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-200 animate-glow">Live Project</span>
+                            </div>
+                            <div class="mt-6 space-y-4">
+                                <div class="rounded-2xl bg-white/10 p-4">
+                                    <p class="text-sm font-semibold text-white">Project Type</p>
+                                    <p class="mt-2 text-sm text-slate-300">Public-facing institutional portal</p>
+                                </div>
+                                <div class="rounded-2xl bg-white/10 p-4">
+                                    <p class="text-sm font-semibold text-white">Focus Areas</p>
+                                    <p class="mt-2 text-sm text-slate-300">Responsive presentation, structured content, maintainable web architecture</p>
+                                </div>
+                                <div class="rounded-2xl bg-white/10 p-4">
+                                    <p class="text-sm font-semibold text-white">Why It Matters</p>
+                                    <p class="mt-2 text-sm text-slate-300">Shows real deployment quality and the ability to contribute to visible, trusted platforms</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Internship Section -->
-    <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 mt-6">
-        <h2 class="text-2xl font-bold mb-4 text-blue-700">Internship</h2>
-        <ul class="list-disc ml-6">
-            <li><strong>Full Stack Development Intern – IIT Kanpur:</strong> Gained hands-on experience in full-stack development using HTML5, CSS3, Bootstrap, and PHP. Contributed to building dynamic and responsive web modules for internal use.</li>
-        </ul>
-    </section>
+        <section id="experience" class="max-w-6xl mx-auto px-6 py-20">
+            <div class="reveal text-center">
+                <p class="text-sm font-semibold uppercase tracking-[0.26em] text-slate-500">Experience</p>
+                <h2 class="mt-4 font-display text-3xl font-bold text-ink md:text-4xl">Roles where I built systems used by real teams.</h2>
+            </div>
+            <div class="mt-12 space-y-6">
+                <article class="reveal reveal-left rounded-[2rem] border border-white/70 bg-white/80 p-7 shadow-soft">
+                    <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                        <div>
+                            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">May 2025 - Present</p>
+                            <h3 class="mt-2 text-2xl font-semibold text-ink">IIT Kanpur - Project Associate</h3>
+                        </div>
+                        <span class="w-fit rounded-full bg-sky-100 px-4 py-2 text-sm font-semibold text-sky-800">Current Role</span>
+                    </div>
+                    <ul class="mt-6 space-y-3 text-base leading-8 text-slate-600">
+                        <li>Enhanced RHMP portal features and improved platform performance for smoother usage.</li>
+                        <li>Worked on real-time data solutions and maintained website content across live systems.</li>
+                        <li>Supported delivery of reliable web experiences for institutional stakeholders.</li>
+                    </ul>
+                </article>
 
-    <!-- Certifications Section -->
-    <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 mt-6">
-        <h2 class="text-2xl font-bold mb-4 text-blue-700">Certifications</h2>
-        <ul class="list-disc ml-6">
-            <li><strong>Full Stack Development Certification:</strong> ICT - IIT Kanpur</li>
-            <li><strong>CCC Certification:</strong> Certified by NIELIT</li>
-        </ul>
-    </section>
+                <article class="reveal rounded-[2rem] border border-white/70 bg-white/80 p-7 shadow-soft">
+                    <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                        <div>
+                            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">Mar 2024 - May 2025</p>
+                            <h3 class="mt-2 text-2xl font-semibold text-ink">SIIC, IIT Kanpur - Executive</h3>
+                        </div>
+                        <span class="w-fit rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-800">Product Delivery</span>
+                    </div>
+                    <ul class="mt-6 space-y-3 text-base leading-8 text-slate-600">
+                        <li>Developed the Grievance Application, Grid India Application, and Appraisal Portal using Laravel.</li>
+                        <li>Integrated Razorpay in the Test Facilities Application for secure digital payments.</li>
+                        <li>Built responsive interfaces and strengthened cross-device usability for internal systems.</li>
+                    </ul>
+                </article>
 
-   <!-- Projects Section -->
-    <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 mt-6">
-        <h2 class="text-2xl font-bold mb-4 text-blue-700">Projects</h2>
-        <ul class="list-disc ml-6 space-y-2">
-            <li><strong>Travel Management System:</strong> Complete travel booking and approval platform.</li>
-            <li><strong>Inventory Management System:</strong> Stock tracking, reporting, and approval workflows.</li>
-            <li><strong>Test Facilities Application:</strong> Includes secure Razorpay integration for payments.</li>
-            <li><strong>Grievance Application:</strong> User-friendly portal to register and track complaints efficiently.</li>
-            <li><strong>Grid India Application:</strong> Developed module for rating and shortlisting applicants.</li>
-            <li><strong>Appraisal Portal:</strong> Employee appraisal system for internal HR processes.</li>
-            <li><strong>MoU Platform:</strong> Developed online system to manage Memorandum of Understanding lifecycle.</li>
-            <li><strong>Real-Time Data Visualization:</strong> Built dashboards using tables and charts for live monitoring.</li>
-        </ul>
-    </section>
+                <article class="reveal reveal-right rounded-[2rem] border border-white/70 bg-white/80 p-7 shadow-soft">
+                    <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                        <div>
+                            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">Jul 2023 - Mar 2024</p>
+                            <h3 class="mt-2 text-2xl font-semibold text-ink">IIT Kanpur - Project Associate</h3>
+                        </div>
+                        <span class="w-fit rounded-full bg-indigo-100 px-4 py-2 text-sm font-semibold text-indigo-800">Enterprise Modules</span>
+                    </div>
+                    <ul class="mt-6 space-y-3 text-base leading-8 text-slate-600">
+                        <li>Developed Travel Management System, MoU Platform, and Inventory Management System modules.</li>
+                        <li>Improved user experience through structured UI decisions and backend optimization.</li>
+                        <li>Contributed to practical systems that supported day-to-day administrative workflows.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 mt-6 mb-10 text-center">
-        <h2 class="text-2xl font-bold mb-4 text-blue-700">Contact</h2>
-        <p>📧 <a href="mailto:anubhavknp3@gmail.com" class="text-blue-600 hover:underline">anubhavknp3@gmail.com</a></p>
-        <p>🔗 <a href="https://github.com/anubhav-gour" target="_blank" class="text-blue-600 hover:underline">GitHub</a> | <a href="https://www.linkedin.com/in/anubhav-gour-475b5219a/" target="_blank" class="text-blue-600 hover:underline">LinkedIn</a></p>
-    </section>
+        <section class="max-w-6xl mx-auto px-6 pb-20">
+            <div class="grid gap-6 lg:grid-cols-[1fr_1fr]">
+                <div class="reveal glass rounded-[2rem] border border-white/70 p-8 shadow-soft">
+                    <p class="text-sm font-semibold uppercase tracking-[0.26em] text-slate-500">Skills</p>
+                    <h2 class="mt-4 font-display text-3xl font-bold text-ink">Tech stack I use to ship production work.</h2>
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <span class="rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white">PHP / Laravel 10</span>
+                        <span class="rounded-full bg-sky-100 px-4 py-2 text-sm font-medium text-sky-900">RESTful APIs</span>
+                        <span class="rounded-full bg-emerald-100 px-4 py-2 text-sm font-medium text-emerald-900">MySQL</span>
+                        <span class="rounded-full bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-900">HTML5 / CSS3</span>
+                        <span class="rounded-full bg-amber-100 px-4 py-2 text-sm font-medium text-amber-900">Bootstrap</span>
+                        <span class="rounded-full bg-pink-100 px-4 py-2 text-sm font-medium text-pink-900">JavaScript</span>
+                        <span class="rounded-full bg-purple-100 px-4 py-2 text-sm font-medium text-purple-900">jQuery / AJAX</span>
+                        <span class="rounded-full bg-cyan-100 px-4 py-2 text-sm font-medium text-cyan-900">Python</span>
+                        <span class="rounded-full bg-rose-100 px-4 py-2 text-sm font-medium text-rose-900">Git / GitLab CI/CD</span>
+                        <span class="rounded-full bg-lime-100 px-4 py-2 text-sm font-medium text-lime-900">Razorpay / PayPal</span>
+                        <span class="rounded-full bg-slate-200 px-4 py-2 text-sm font-medium text-slate-800">Figma</span>
+                        <span class="rounded-full bg-sky-50 px-4 py-2 text-sm font-medium text-sky-900">GoDaddy Deployment</span>
+                    </div>
+                </div>
 
-    <!-- Footer Section -->
-    <footer class="bg-blue-600 text-white text-center py-4 mt-10">
-        <p class="text-sm">© <span id="year"></span> <span class="font-semibold">Anubhav Gour</span> | All Rights Reserved</p>
-        <p class="mt-1 text-xs">Built with ❤️ using <a href="https://tailwindcss.com" class="underline hover:text-gray-200">Tailwind CSS</a></p>
+                <div class="reveal rounded-[2rem] bg-gradient-to-br from-white to-sky-50 p-8 shadow-soft">
+                    <p class="text-sm font-semibold uppercase tracking-[0.26em] text-slate-500">Certifications</p>
+                    <h2 class="mt-4 font-display text-3xl font-bold text-ink">Learning backed by formal training.</h2>
+                    <div class="mt-8 space-y-4">
+                        <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                            <h3 class="text-lg font-semibold text-ink">Full Stack Development Certification</h3>
+                            <p class="mt-2 text-sm text-slate-600">ICT - IIT Kanpur</p>
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                            <h3 class="text-lg font-semibold text-ink">CCC Certification</h3>
+                            <p class="mt-2 text-sm text-slate-600">Certified by NIELIT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="max-w-6xl mx-auto px-6 pb-20">
+            <div class="reveal text-center">
+                <p class="text-sm font-semibold uppercase tracking-[0.26em] text-slate-500">Projects</p>
+                <h2 class="mt-4 font-display text-3xl font-bold text-ink md:text-4xl">Systems I have built, improved, or helped bring to life.</h2>
+            </div>
+            <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                <article class="project-card reveal group relative overflow-hidden rounded-[2rem] bg-white p-6 shadow-soft transition-transform duration-300 hover:-translate-y-2">
+                    <div class="project-orb absolute -right-8 -top-8 h-24 w-24 rounded-full bg-sky-200 opacity-70 blur-2xl transition-all duration-500"></div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">Featured</p>
+                    <h3 class="mt-3 text-2xl font-semibold text-ink">River Portal</h3>
+                    <p class="mt-3 text-sm leading-7 text-slate-600">Highlighted live portal for structured public-facing information and polished presentation quality.</p>
+                    <a href="https://river.cnarmada.org/" target="_blank" rel="noreferrer" class="project-arrow mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slateblue transition-transform duration-300">Visit portal <span aria-hidden="true">-&gt;</span></a>
+                </article>
+                <article class="project-card reveal group relative overflow-hidden rounded-[2rem] bg-white p-6 shadow-soft transition-transform duration-300 hover:-translate-y-2">
+                    <div class="project-orb absolute -right-8 -top-8 h-24 w-24 rounded-full bg-emerald-200 opacity-70 blur-2xl transition-all duration-500"></div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">Enterprise</p>
+                    <h3 class="mt-3 text-2xl font-semibold text-ink">Travel Management System</h3>
+                    <p class="mt-3 text-sm leading-7 text-slate-600">Travel request, approval, and workflow management platform for institutional use.</p>
+                </article>
+                <article class="project-card reveal group relative overflow-hidden rounded-[2rem] bg-white p-6 shadow-soft transition-transform duration-300 hover:-translate-y-2">
+                    <div class="project-orb absolute -right-8 -top-8 h-24 w-24 rounded-full bg-indigo-200 opacity-70 blur-2xl transition-all duration-500"></div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">Operations</p>
+                    <h3 class="mt-3 text-2xl font-semibold text-ink">Inventory Management System</h3>
+                    <p class="mt-3 text-sm leading-7 text-slate-600">Tracking, approvals, and reporting workflows for inventory and organizational assets.</p>
+                </article>
+                <article class="project-card reveal group relative overflow-hidden rounded-[2rem] bg-white p-6 shadow-soft transition-transform duration-300 hover:-translate-y-2">
+                    <div class="project-orb absolute -right-8 -top-8 h-24 w-24 rounded-full bg-amber-200 opacity-70 blur-2xl transition-all duration-500"></div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">Payments</p>
+                    <h3 class="mt-3 text-2xl font-semibold text-ink">Test Facilities Application</h3>
+                    <p class="mt-3 text-sm leading-7 text-slate-600">Integrated secure Razorpay payments inside a practical facility-request workflow.</p>
+                </article>
+                <article class="project-card reveal group relative overflow-hidden rounded-[2rem] bg-white p-6 shadow-soft transition-transform duration-300 hover:-translate-y-2">
+                    <div class="project-orb absolute -right-8 -top-8 h-24 w-24 rounded-full bg-rose-200 opacity-70 blur-2xl transition-all duration-500"></div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">Workflows</p>
+                    <h3 class="mt-3 text-2xl font-semibold text-ink">Grievance & Appraisal Portals</h3>
+                    <p class="mt-3 text-sm leading-7 text-slate-600">Internal systems designed to simplify complaint handling and employee evaluation processes.</p>
+                </article>
+                <article class="project-card reveal group relative overflow-hidden rounded-[2rem] bg-white p-6 shadow-soft transition-transform duration-300 hover:-translate-y-2">
+                    <div class="project-orb absolute -right-8 -top-8 h-24 w-24 rounded-full bg-cyan-200 opacity-70 blur-2xl transition-all duration-500"></div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">Data</p>
+                    <h3 class="mt-3 text-2xl font-semibold text-ink">Real-Time Data Visualization</h3>
+                    <p class="mt-3 text-sm leading-7 text-slate-600">Dashboards and live information interfaces built to support decision-making and monitoring.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="max-w-6xl mx-auto px-6 pb-20">
+            <div class="reveal rounded-[2rem] bg-gradient-to-r from-slate-950 via-slate-900 to-blue-950 p-8 text-white shadow-panel md:p-10">
+                <div class="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+                    <div>
+                        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-sky-200">Contact</p>
+                        <h2 class="mt-4 font-display text-3xl font-bold md:text-4xl">Let's build something useful, reliable, and well crafted.</h2>
+                        <p class="mt-5 max-w-2xl text-base leading-8 text-slate-300">If you are hiring for web development, Laravel systems, institutional platforms, or full-stack product work, I'd love to connect.</p>
+                    </div>
+                    <div class="grid gap-4">
+                        <a href="mailto:anubhavknp3@gmail.com" class="rounded-2xl border border-white/10 bg-white/5 p-5 transition-transform duration-300 hover:-translate-y-1"><p class="text-xs uppercase tracking-[0.22em] text-sky-200">Email</p><p class="mt-2 text-lg font-semibold text-white">anubhavknp3@gmail.com</p></a>
+                        <a href="https://github.com/anubhav-gour" target="_blank" rel="noreferrer" class="rounded-2xl border border-white/10 bg-white/5 p-5 transition-transform duration-300 hover:-translate-y-1"><p class="text-xs uppercase tracking-[0.22em] text-sky-200">GitHub</p><p class="mt-2 text-lg font-semibold text-white">github.com/anubhav-gour</p></a>
+                        <a href="https://www.linkedin.com/in/anubhav-gour-475b5219a/" target="_blank" rel="noreferrer" class="rounded-2xl border border-white/10 bg-white/5 p-5 transition-transform duration-300 hover:-translate-y-1"><p class="text-xs uppercase tracking-[0.22em] text-sky-200">LinkedIn</p><p class="mt-2 text-lg font-semibold text-white">linkedin.com/in/anubhav-gour-475b5219a</p></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-slate-200/80 bg-white/70 py-6 text-center text-sm text-slate-500">
+        <p>&copy; <span id="year"></span> Anubhav Gour. Crafted for a stronger portfolio presence.</p>
     </footer>
 
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        }, { threshold: 0.18 });
+
+        document.querySelectorAll(".reveal").forEach((element, index) => {
+            element.style.transitionDelay = `${Math.min(index * 70, 280)}ms`;
+            observer.observe(element);
+        });
+    </script>
 </body>
 </html>
